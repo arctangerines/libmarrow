@@ -24,12 +24,13 @@ z_comp_acc.data = z_comp_acc.data - z_comp_acc.data.mean()
 z_comp_acc.detrend("linear")
 z_comp_acc.plot(type="relative",outfile="chus_2137.png")
 z_comp_acc.plot(type="relative")
+z_comp_acc.filter('bandpass', freqmin=1.0, freqmax=20.0)
+z_comp_acc.plot(type="relative")
 
 # nfft = len(z_comp_acc.data)
 nfft = 1024
 freq = np.fft.rfftfreq(nfft, d=z_comp_acc.stats.delta)
 spect = np.abs(np.fft.rfft(z_comp_acc.data, n=nfft))
-
 plt.plot(freq, spect)
 plt.show()
 
