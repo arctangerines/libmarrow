@@ -26,6 +26,7 @@ z_comp_acc.plot(type="relative",outfile="chus_2137.png")
 z_comp_acc.plot(type="relative")
 z_comp_acc.filter('bandpass', freqmin=1.0, freqmax=20.0)
 z_comp_acc.plot(type="relative")
+z_comp_acc.spectrogram()
 
 # nfft = len(z_comp_acc.data)
 nfft = 1024
